@@ -1,0 +1,22 @@
+{
+  "name": "ai-job-hunter",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI job-hunting agent: resume parsing, daily top-10 matches, application prep, approval queue and tracker.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env --disable-warning=ExperimentalWarning server.js",
+    "dev": "node --watch --env-file-if-exists=.env --disable-warning=ExperimentalWarning server.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^1.6.0",
+    "express": "^4.22.3",
+    "mammoth": "^1.13.0",
+    "multer": "^2.5.0",
+    "pdf-parse": "^1.1.1",
+    "zod": "^4.6.7"
+  }
+}
