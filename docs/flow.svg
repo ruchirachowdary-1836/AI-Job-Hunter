@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 250" width="1200" height="250" role="img" aria-labelledby="t d">
+  <title id="t">How AI Job Hunter works</title>
+  <desc id="d">Five steps: upload resume, daily top 10, AI prepares the application, you approve, then you apply and track it.</desc>
+  <style>
+    text { font-family: Inter, "Segoe UI", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; }
+    .label { font-size: 17px; font-weight: 600; fill: #e6edf3; }
+    .sub { font-size: 13px; fill: #8b98a8; }
+    .step { font-size: 11px; font-weight: 700; letter-spacing: 1px; fill: #5d6b7c; }
+    .node { fill: #11161d; stroke: #2c3746; stroke-width: 2; }
+    .glow { fill: #2dd4bf; opacity: 0; animation: glow 7.5s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+    .n1 { animation-delay: 0s; } .n2 { animation-delay: 1.5s; } .n3 { animation-delay: 3s; } .n4 { animation-delay: 4.5s; } .n5 { animation-delay: 6s; }
+    @keyframes glow { 0% { opacity: .55; transform: scale(1); } 18% { opacity: 0; transform: scale(1.7); } 100% { opacity: 0; transform: scale(1.7); } }
+    .icon { fill: none; stroke: #2dd4bf; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .track { stroke: #222b37; stroke-width: 3; }
+    .flow { stroke: #2dd4bf; stroke-width: 3; stroke-dasharray: 6 10; animation: dash 1.2s linear infinite; opacity: .55; }
+    @keyframes dash { to { stroke-dashoffset: -16; } }
+    .dot { animation: travel 7.5s cubic-bezier(.45,0,.55,1) infinite; }
+    @keyframes travel {
+      0% { transform: translateX(0); }
+      20% { transform: translateX(240px); }
+      40% { transform: translateX(480px); }
+      52% { transform: translateX(720px); }
+      62% { transform: translateX(720px); }
+      80%, 100% { transform: translateX(960px); }
+    }
+    .gate { animation: gate 7.5s ease-in-out infinite; }
+    @keyframes gate { 0%, 50% { opacity: 0; } 54%, 62% { opacity: 1; } 68%, 100% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      .glow, .flow, .dot, .gate { animation: none; }
+      .dot, .gate { display: none; }
+    }
+  </style>
+  <rect width="1200" height="250" rx="20" fill="#0b0f14"/>
+  <rect x=".5" y=".5" width="1199" height="249" rx="19.5" fill="none" stroke="#222b37"/>
+
+  <line x1="120" y1="96" x2="1080" y2="96" class="track"/>
+  <line x1="120" y1="96" x2="1080" y2="96" class="flow"/>
+  <g class="dot"><circle cx="120" cy="96" r="7" fill="#2dd4bf"/><circle cx="120" cy="96" r="13" fill="#2dd4bf" opacity=".2"/></g>
+
+  <!-- 1 Resume -->
+  <g transform="translate(120 96)">
+    <circle r="36" class="glow n1"/>
+    <circle r="36" class="node"/>
+    <g class="icon" transform="translate(-12 -13)"><path d="M4 1h11l5 5v19H4z"/><path d="M15 1v5h5M8 13h8M8 18h8"/></g>
+    <text y="66" text-anchor="middle" class="step">STEP 1</text>
+    <text y="90" text-anchor="middle" class="label">Upload resume</text>
+    <text y="112" text-anchor="middle" class="sub">AI builds your profile</text>
+  </g>
+  <!-- 2 Top 10 -->
+  <g transform="translate(360 96)">
+    <circle r="36" class="glow n2"/>
+    <circle r="36" class="node"/>
+    <g class="icon" transform="translate(-12 -12)"><path d="M12 1l3.2 6.6 7.3.9-5.4 5 1.4 7.2L12 17.2 5.5 20.7l1.4-7.2-5.4-5 7.3-.9z"/></g>
+    <text y="66" text-anchor="middle" class="step">STEP 2</text>
+    <text y="90" text-anchor="middle" class="label">Daily top 10</text>
+    <text y="112" text-anchor="middle" class="sub">Scored with reasons</text>
+  </g>
+  <!-- 3 Prep -->
+  <g transform="translate(600 96)">
+    <circle r="36" class="glow n3"/>
+    <circle r="36" class="node"/>
+    <g class="icon" transform="translate(-12 -12)"><path d="M3 21l3-1 13-13-2-2L4 18z"/><path d="M15 5l2 2M14 21h7"/></g>
+    <text y="66" text-anchor="middle" class="step">STEP 3</text>
+    <text y="90" text-anchor="middle" class="label">AI prepares</text>
+    <text y="112" text-anchor="middle" class="sub">Cover letter + answers</text>
+  </g>
+  <!-- 4 Approve (the gate) -->
+  <g transform="translate(840 96)">
+    <circle r="36" class="glow n4"/>
+    <circle r="36" class="node" style="stroke:#2dd4bf"/>
+    <g class="icon" transform="translate(-12 -13)"><path d="M12 1l10 4v7c0 6-4.3 10.6-10 12C6.3 22.6 2 18 2 12V5z"/><path d="M7.5 12.5l3 3 6-6"/></g>
+    <g class="gate"><rect x="-50" y="-74" width="100" height="24" rx="12" fill="#2dd4bf"/><text y="-57" text-anchor="middle" font-size="12" font-weight="700" fill="#042f2b">APPROVED ✓</text></g>
+    <text y="66" text-anchor="middle" class="step" style="fill:#2dd4bf">STEP 4 · YOU</text>
+    <text y="90" text-anchor="middle" class="label">You approve</text>
+    <text y="112" text-anchor="middle" class="sub">Edit, approve or reject</text>
+  </g>
+  <!-- 5 Apply & track -->
+  <g transform="translate(1080 96)">
+    <circle r="36" class="glow n5"/>
+    <circle r="36" class="node"/>
+    <g class="icon" transform="translate(-12 -12)"><rect x="1" y="2" width="6" height="20" rx="1.5"/><rect x="9" y="2" width="6" height="14" rx="1.5"/><rect x="17" y="2" width="6" height="9" rx="1.5"/></g>
+    <text y="66" text-anchor="middle" class="step">STEP 5</text>
+    <text y="90" text-anchor="middle" class="label">Apply &amp; track</text>
+    <text y="112" text-anchor="middle" class="sub">You submit, it tracks</text>
+  </g>
+</svg>

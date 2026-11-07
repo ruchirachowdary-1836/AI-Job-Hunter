@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300" role="img" aria-labelledby="t d">
+  <title id="t">Application tracker</title>
+  <desc id="d">An application card moves across the tracker: Saved, Approved, Applied, Interview, Offer. It can only pass Approved after your approval.</desc>
+  <style>
+    text { font-family: Inter, "Segoe UI", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; }
+    .col { fill: #11161d; stroke: #222b37; }
+    .head { font-size: 14px; font-weight: 600; fill: #e6edf3; }
+    .count { font-size: 13px; fill: #5d6b7c; }
+    .ghost { fill: #161c25; stroke: #222b37; }
+    .gl { fill: #222b37; }
+    .mover { animation: move 10s cubic-bezier(.65,0,.35,1) infinite; }
+    @keyframes move {
+      0%, 12% { transform: translate(0, 0); opacity: 1; }
+      20%, 34% { transform: translate(228px, 0); opacity: 1; }
+      42%, 56% { transform: translate(456px, 0); opacity: 1; }
+      64%, 78% { transform: translate(684px, 0); opacity: 1; }
+      86%, 96% { transform: translate(912px, 0); opacity: 1; }
+      100% { transform: translate(912px, 0); opacity: 0; }
+    }
+    .lift { animation: lift 10s ease-in-out infinite; }
+    @keyframes lift {
+      0%, 12%, 20%, 34%, 42%, 56%, 64%, 78%, 86%, 100% { transform: translateY(0); }
+      16%, 38%, 60%, 82% { transform: translateY(-8px); }
+    }
+    .badge { opacity: 0; }
+    .b1 { animation: b1 10s infinite; } .b2 { animation: b2 10s infinite; } .b3 { animation: b3 10s infinite; } .b4 { animation: b4 10s infinite; } .b5 { animation: b5 10s infinite; }
+    @keyframes b1 { 0%, 14% { opacity: 1; } 16%, 100% { opacity: 0; } }
+    @keyframes b2 { 0%, 18% { opacity: 0; } 20%, 36% { opacity: 1; } 38%, 100% { opacity: 0; } }
+    @keyframes b3 { 0%, 40% { opacity: 0; } 42%, 58% { opacity: 1; } 60%, 100% { opacity: 0; } }
+    @keyframes b4 { 0%, 62% { opacity: 0; } 64%, 80% { opacity: 1; } 82%, 100% { opacity: 0; } }
+    @keyframes b5 { 0%, 84% { opacity: 0; } 86%, 98% { opacity: 1; } 100% { opacity: 0; } }
+    .lock { animation: lock 10s infinite; }
+    @keyframes lock { 0%, 14% { opacity: 1; } 18%, 100% { opacity: 0; } }
+    .confetti circle { opacity: 0; animation: pop 10s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+    @keyframes pop { 0%, 86% { opacity: 0; transform: translate(0,0) scale(.3); } 88% { opacity: 1; } 96% { opacity: 0; transform: translate(var(--x), var(--y)) scale(1); } 100% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      .mover, .lift, .badge, .lock, .confetti circle { animation: none; }
+      .b1 { opacity: 1; } .confetti { display: none; }
+    }
+  </style>
+  <rect width="1200" height="300" rx="20" fill="#0b0f14"/>
+  <rect x=".5" y=".5" width="1199" height="299" rx="19.5" fill="none" stroke="#222b37"/>
+
+  <!-- columns -->
+  <g transform="translate(36 30)">
+    <g><rect width="212" height="240" rx="14" class="col"/><circle cx="20" cy="26" r="5" fill="#8b98a8"/><text x="32" y="31" class="head">Saved</text></g>
+    <g transform="translate(228 0)"><rect width="212" height="240" rx="14" class="col" style="stroke:#2dd4bf;stroke-opacity:.45"/><circle cx="20" cy="26" r="5" fill="#2dd4bf"/><text x="32" y="31" class="head">Approved</text>
+      <g class="lock" transform="translate(176 14)"><rect width="22" height="22" rx="6" fill="#2dd4bf" fill-opacity=".14"/><path d="M7 11V8a4 4 0 0 1 8 0v3M6 11h10v7H6z" fill="none" stroke="#2dd4bf" stroke-width="1.6" stroke-linejoin="round"/></g></g>
+    <g transform="translate(456 0)"><rect width="212" height="240" rx="14" class="col"/><circle cx="20" cy="26" r="5" fill="#60a5fa"/><text x="32" y="31" class="head">Applied</text></g>
+    <g transform="translate(684 0)"><rect width="212" height="240" rx="14" class="col"/><circle cx="20" cy="26" r="5" fill="#c084fc"/><text x="32" y="31" class="head">Interview</text></g>
+    <g transform="translate(912 0)"><rect width="212" height="240" rx="14" class="col"/><circle cx="20" cy="26" r="5" fill="#4ade80"/><text x="32" y="31" class="head">Offer 🎉</text></g>
+
+    <!-- static ghost cards for texture -->
+    <g transform="translate(12 136)"><rect width="188" height="64" rx="10" class="ghost"/><rect x="12" y="16" width="120" height="9" rx="4" class="gl"/><rect x="12" y="34" width="80" height="8" rx="4" class="gl"/></g>
+    <g transform="translate(468 136)"><rect width="188" height="64" rx="10" class="ghost"/><rect x="12" y="16" width="110" height="9" rx="4" class="gl"/><rect x="12" y="34" width="70" height="8" rx="4" class="gl"/></g>
+    <g transform="translate(696 136)"><rect width="188" height="64" rx="10" class="ghost"/><rect x="12" y="16" width="130" height="9" rx="4" class="gl"/><rect x="12" y="34" width="90" height="8" rx="4" class="gl"/></g>
+
+    <!-- the moving application card -->
+    <g transform="translate(12 52)"><g class="mover"><g class="lift">
+      <rect width="188" height="72" rx="10" fill="#161c25" stroke="#2dd4bf" stroke-opacity=".6"/>
+      <text x="12" y="25" font-size="14" font-weight="600" fill="#e6edf3">UI/UX Designer</text>
+      <text x="12" y="44" font-size="12" fill="#8b98a8">Brightloop Labs · 92% match</text>
+      <g transform="translate(12 52)">
+        <g class="badge b1"><text y="10" font-size="11" fill="#8b98a8">Saved · Nov 3</text></g>
+        <g class="badge b2"><text y="10" font-size="11" fill="#2dd4bf">✓ Approved by you · Nov 4</text></g>
+        <g class="badge b3"><text y="10" font-size="11" fill="#60a5fa">Applied · Nov 4</text></g>
+        <g class="badge b4"><text y="10" font-size="11" fill="#c084fc">Interview · Nov 12</text></g>
+        <g class="badge b5"><text y="10" font-size="11" fill="#4ade80">Offer received · Nov 20</text></g>
+      </g>
+    </g></g></g>
+
+    <g class="confetti" transform="translate(1006 88)">
+      <circle r="4" fill="#2dd4bf" style="--x:-40px;--y:-34px"/>
+      <circle r="3" fill="#4ade80" style="--x:44px;--y:-30px;animation-delay:.1s"/>
+      <circle r="3.5" fill="#fbbf24" style="--x:-28px;--y:40px;animation-delay:.05s"/>
+      <circle r="3" fill="#c084fc" style="--x:36px;--y:36px;animation-delay:.15s"/>
+      <circle r="2.5" fill="#60a5fa" style="--x:0px;--y:-48px;animation-delay:.08s"/>
+    </g>
+  </g>
+</svg>

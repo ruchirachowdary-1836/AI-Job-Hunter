@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="1200" height="380" role="img" aria-labelledby="t d">
+  <title id="t">AI Job Hunter</title>
+  <desc id="d">Animated banner: AI Job Hunter reads your resume, finds your 10 best jobs every day, and applies only with your approval.</desc>
+  <defs>
+    <radialGradient id="glow" cx="78%" cy="10%" r="65%">
+      <stop offset="0" stop-color="#2dd4bf" stop-opacity=".22"/>
+      <stop offset="1" stop-color="#2dd4bf" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#1a222d" stroke-width="1"/>
+    </pattern>
+    <linearGradient id="fade" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0" stop-color="#0b0f14" stop-opacity="0"/>
+      <stop offset="1" stop-color="#0b0f14"/>
+    </linearGradient>
+    <clipPath id="frame"><rect width="1200" height="380" rx="20"/></clipPath>
+  </defs>
+  <style>
+    text { font-family: Inter, "Segoe UI", -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif; }
+    .title { font-size: 58px; font-weight: 700; fill: #e6edf3; letter-spacing: -1.5px; }
+    .accent { fill: #2dd4bf; }
+    .line { font-size: 22px; fill: #8b98a8; opacity: 0; animation: lineIn 9s ease-in-out infinite; }
+    .line b, .hl { fill: #e6edf3; font-weight: 600; }
+    .l2 { animation-delay: .6s; } .l3 { animation-delay: 1.2s; }
+    @keyframes lineIn { 0% { opacity: 0; transform: translateY(8px); } 8%, 88% { opacity: 1; transform: none; } 96%, 100% { opacity: 0; } }
+    .tick { opacity: 0; animation: lineIn 9s ease-in-out infinite; }
+    .t2 { animation-delay: .6s; } .t3 { animation-delay: 1.2s; }
+
+    .card { opacity: 0; animation: cardIn 9s cubic-bezier(.2,.8,.2,1) infinite; }
+    .c1 { animation-delay: .3s; } .c2 { animation-delay: .7s; } .c3 { animation-delay: 1.1s; }
+    @keyframes cardIn { 0% { opacity: 0; transform: translateX(40px); } 9%, 88% { opacity: 1; transform: none; } 96%, 100% { opacity: 0; transform: translateX(-10px); } }
+    .float { animation: float 6s ease-in-out infinite; }
+    @keyframes float { 50% { transform: translateY(-6px); } }
+
+    .ring { fill: none; stroke-width: 5; stroke-linecap: round; stroke-dasharray: 138.2; stroke-dashoffset: 138.2; transform: rotate(-90deg); transform-box: fill-box; transform-origin: center; animation-duration: 9s; animation-iteration-count: infinite; animation-timing-function: ease-out; }
+    .r1 { stroke: #2dd4bf; animation-name: r92; animation-delay: .5s; }
+    .r2 { stroke: #2dd4bf; animation-name: r87; animation-delay: .9s; }
+    .r3 { stroke: #a3e635; animation-name: r74; animation-delay: 1.3s; }
+    @keyframes r92 { 0% { stroke-dashoffset: 138.2; } 14%, 90% { stroke-dashoffset: 11; } 100% { stroke-dashoffset: 138.2; } }
+    @keyframes r87 { 0% { stroke-dashoffset: 138.2; } 14%, 90% { stroke-dashoffset: 18; } 100% { stroke-dashoffset: 138.2; } }
+    @keyframes r74 { 0% { stroke-dashoffset: 138.2; } 14%, 90% { stroke-dashoffset: 36; } 100% { stroke-dashoffset: 138.2; } }
+
+    .ctitle { font-size: 17px; font-weight: 600; fill: #e6edf3; }
+    .cmeta { font-size: 13px; fill: #8b98a8; }
+    .score { font-size: 15px; font-weight: 700; fill: #e6edf3; }
+    .chip { font-size: 11px; font-weight: 600; letter-spacing: .6px; }
+    .pulse { animation: pulse 2.4s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+    @keyframes pulse { 0%, 100% { opacity: .9; } 50% { opacity: .35; } }
+    .scan { animation: scan 4.5s linear infinite; }
+    @keyframes scan { from { transform: translateY(-380px); } to { transform: translateY(380px); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .line, .tick, .card { animation: none; opacity: 1; }
+      .ring { animation: none; }
+      .r1 { stroke-dashoffset: 11; } .r2 { stroke-dashoffset: 18; } .r3 { stroke-dashoffset: 36; }
+      .float, .pulse, .scan { animation: none; }
+      .scan { display: none; }
+    }
+  </style>
+
+  <g clip-path="url(#frame)">
+    <rect width="1200" height="380" fill="#0b0f14"/>
+    <rect width="1200" height="380" fill="url(#grid)"/>
+    <rect width="1200" height="380" fill="url(#glow)"/>
+    <rect y="240" width="1200" height="140" fill="url(#fade)"/>
+    <rect class="scan" x="640" y="0" width="560" height="2" fill="#2dd4bf" opacity=".18"/>
+
+    <!-- Left: logo, title, tagline -->
+    <g transform="translate(64 74)">
+      <rect width="52" height="52" rx="14" fill="#14b8a6"/>
+      <circle cx="23" cy="23" r="10" fill="none" stroke="#042f2b" stroke-width="5"/>
+      <path d="M31 31l9 9" stroke="#042f2b" stroke-width="5" stroke-linecap="round"/>
+      <g transform="translate(70 4)">
+        <rect width="140" height="26" rx="13" fill="#2dd4bf" fill-opacity=".12"/>
+        <circle class="pulse" cx="16" cy="13" r="4" fill="#2dd4bf"/>
+        <text x="28" y="18" class="chip accent">AGENT · DAILY</text>
+      </g>
+    </g>
+    <text x="64" y="186" class="title">AI Job <tspan class="accent">Hunter</tspan></text>
+
+    <g transform="translate(64 228)">
+      <g class="tick"><circle cx="9" cy="-7" r="9" fill="#2dd4bf" fill-opacity=".15"/><path d="M5 -7l3 3 6-6" stroke="#2dd4bf" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+      <text x="28" y="0" class="line">Reads your <tspan class="hl">resume</tspan> and builds your profile</text>
+      <g transform="translate(0 40)"><g class="tick t2"><circle cx="9" cy="-7" r="9" fill="#2dd4bf" fill-opacity=".15"/><path d="M5 -7l3 3 6-6" stroke="#2dd4bf" stroke-width="2" fill="none" stroke-linecap="round"/></g></g>
+      <text x="28" y="40" class="line l2">Finds your <tspan class="hl">10 best-fit jobs</tspan> every morning</text>
+      <g transform="translate(0 80)"><g class="tick t3"><circle cx="9" cy="-7" r="9" fill="#2dd4bf" fill-opacity=".15"/><path d="M4 -10h10v6c0 3-2 5-5 6-3-1-5-3-5-6z" stroke="#2dd4bf" stroke-width="1.8" fill="none" stroke-linejoin="round"/></g></g>
+      <text x="28" y="80" class="line l3">Applies <tspan class="hl">only with your approval</tspan></text>
+    </g>
+
+    <!-- Right: animated job cards -->
+    <g transform="translate(700 52)">
+      <g class="card c1"><g class="float">
+        <rect width="440" height="84" rx="14" fill="#11161d" stroke="#2c3746"/>
+        <circle cx="46" cy="42" r="22" fill="none" stroke="#222b37" stroke-width="5"/>
+        <circle class="ring r1" cx="46" cy="42" r="22"/>
+        <text x="46" y="47" text-anchor="middle" class="score">92</text>
+        <text x="86" y="36" class="ctitle">UI/UX Designer</text>
+        <text x="86" y="58" class="cmeta">Brightloop Labs · Bengaluru · Hybrid · ₹9L–14L</text>
+        <rect x="350" y="16" width="74" height="22" rx="6" fill="#2dd4bf" fill-opacity=".14"/>
+        <text x="387" y="31" text-anchor="middle" class="chip accent">TOP MATCH</text>
+      </g></g>
+      <g transform="translate(0 100)"><g class="card c2"><g class="float" style="animation-delay:-2s">
+        <rect width="440" height="84" rx="14" fill="#11161d" stroke="#222b37"/>
+        <circle cx="46" cy="42" r="22" fill="none" stroke="#222b37" stroke-width="5"/>
+        <circle class="ring r2" cx="46" cy="42" r="22"/>
+        <text x="46" y="47" text-anchor="middle" class="score">87</text>
+        <text x="86" y="36" class="ctitle">Product Design Intern</text>
+        <text x="86" y="58" class="cmeta">Lumen Learning · Remote · ₹20k–30k/mo</text>
+        <rect x="334" y="16" width="90" height="22" rx="6" fill="#fbbf24" fill-opacity=".12"/>
+        <text x="379" y="31" text-anchor="middle" class="chip" fill="#fbbf24">IN REVIEW</text>
+      </g></g></g>
+      <g transform="translate(0 200)"><g class="card c3"><g class="float" style="animation-delay:-4s">
+        <rect width="440" height="84" rx="14" fill="#11161d" stroke="#222b37"/>
+        <circle cx="46" cy="42" r="22" fill="none" stroke="#222b37" stroke-width="5"/>
+        <circle class="ring r3" cx="46" cy="42" r="22"/>
+        <text x="46" y="47" text-anchor="middle" class="score">74</text>
+        <text x="86" y="36" class="ctitle">UX Researcher</text>
+        <text x="86" y="58" class="cmeta">Openfield · Remote · Missing: Statistics</text>
+        <rect x="350" y="16" width="74" height="22" rx="6" fill="#60a5fa" fill-opacity=".14"/>
+        <text x="387" y="31" text-anchor="middle" class="chip" fill="#60a5fa">APPLIED</text>
+      </g></g></g>
+    </g>
+    <rect x=".5" y=".5" width="1199" height="379" rx="19.5" fill="none" stroke="#222b37"/>
+  </g>
+</svg>
